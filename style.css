@@ -126,6 +126,7 @@ input[type="text"]::placeholder {
 
 #gridInput {
   background-color: hsl(189, 41%, 97%);
+  color: hsl(186, 14%, 43%);
   text-align: center;
 }
 
