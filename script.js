@@ -78,7 +78,10 @@ customInput.addEventListener("change", function () {
 
     calSplit(bill, percent, amountOfPpl);
   } else {
-    console.log("It's a decimal. Please input a whole number");
+    console.log(
+      (document.getElementById("tip-amount").innerText =
+        "It's a decimal. Please input a whole number")
+    );
   }
 });
 
