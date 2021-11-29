@@ -35,11 +35,10 @@ themeBtn.addEventListener("click", function () {
 let bill = 0;
 let amountOfPpl = 0;
 let tipPerPerson;
-let customPercentage;
 // let totalTip;
 // let totalAmountPerPerson;
 let totalPerPerson;
-let tipPercentage;
+
 let billInput = document.getElementById("bill-input");
 let people = document.getElementById("pplInput");
 let percent = document.querySelectorAll(".getBtns");
@@ -64,20 +63,19 @@ percent.forEach((btn) => {
     //How to we change the value from a string to the percent a number value?
     // console.log(parseFloat(btn.innerText) / 100);
 
-    tipPercentage = parseFloat(btn.innerText);
+    percent = parseFloat(btn.innerText);
 
     calSplit(bill, percent, amountOfPpl);
   });
 });
-console.log(Number.isInteger(customInput.value));
-console.log(typeof customInput.value);
+
 customInput.addEventListener("change", function () {
   // console.log(billInput.value);
   //We got to store "bill" input when functions calls "bill" in it's perimeters. Do the same for the percentage and amountOfPpl SSSSSSOOOOOO...
   customInputKey = Number.isInteger(parseInt(customInput.value));
   if (customInputKey == true) {
-    customPercentage = parseFloat(customInput.value);
-    console.log(customPercentage);
+    percent = parseFloat(customInput.value);
+
     calSplit(bill, percent, amountOfPpl);
   } else {
     console.log("It's a decimal. Please input a whole number");
@@ -99,10 +97,11 @@ const resetCalc = () => {
 
 const calSplit = (bill, percentage, amountOfPpl) => {
   bill = parseInt(billInput.value);
-  if (percentage == tipPercentage) {
-    percentage = tipPercentage / 100;
+
+  if (percentage == customInput || percentage == percent) {
+    percentage = parseFloat(percentage) / 100;
   } else {
-    percentage = customPercentage / 100;
+    ("CalcSplit not working");
   }
 
   amountOfPpl = parseFloat(people.value);
